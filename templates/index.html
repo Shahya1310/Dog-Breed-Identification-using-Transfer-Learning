@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dog Breed Identification</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">DOG BREED.</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="btn-nav" href="/predict">Inspect</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content fade-in">
+      <h1>Dog Breed Identification.</h1>
+      <p>Identification of Different Dog Breeds using Deep Learning</p>
+      <a href="/predict" class="btn-primary">Inspect Image</a>
+    </div>
+  </section>
+
+  <!-- About / Flow -->
+  <section id="about" class="section light">
+    <h2>How It Works</h2>
+    <div class="flow-grid">
+      <div class="card slide-up">
+        <h3>📁 Data Preparation</h3>
+        <p>Images are collected, preprocessed and split into training and testing sets.</p>
+      </div>
+      <div class="card slide-up">
+        <h3>🧠 Model Building</h3>
+        <p>VGG19 transfer learning model is fine-tuned for dog breed classification.</p>
+      </div>
+      <div class="card slide-up">
+        <h3>📊 Training & Evaluation</h3>
+        <p>The CNN is trained and evaluated to improve accuracy.</p>
+      </div>
+      <div class="card slide-up">
+        <h3>🚀 Deployment</h3>
+        <p>The trained model is deployed with Flask for real-time predictions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Message"></textarea>
+      <button class="btn-primary" type="submit">Send Message</button>
+    </form>
+  </section>
+
+</body>
+</html>

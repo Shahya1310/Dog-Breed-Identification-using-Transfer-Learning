@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <nav class="navbar dark">
+    <div class="logo">DOG BREED IDENTIFICATION</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/predict">Inspect</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero result-hero">
+    <div class="hero-content fade-in">
+      <h1>The Dog Breed is</h1>
+      <h2 class="highlight">{{ prediction }}</h2>
+      <p>Confidence: {{ confidence }}</p>
+      <a href="/predict" class="btn-primary">Try Another Image</a>
+    </div>
+  </section>
+</body>
+</html>

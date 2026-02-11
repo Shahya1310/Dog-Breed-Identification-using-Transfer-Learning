@@ -1,0 +1,8 @@
+venv310/
+venv/
+.venv/
+__pycache__/
+dataset/
+uploads/
+*.h5
+*.pyc
