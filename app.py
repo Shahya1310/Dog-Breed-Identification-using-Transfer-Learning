@@ -62,10 +62,13 @@ def predict():
     predicted_breed = labels[str(top_idx)]
 
     return render_template(
-        "output.html",
-        prediction=predicted_breed,
-        confidence=f"{confidence:.2f}%"
-    )
+    "output.html",
+    prediction=predicted_breed,
+    confidence_text=f"{confidence:.2f}%",
+    confidence_value=f"{confidence:.2f}"
+)
+
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)

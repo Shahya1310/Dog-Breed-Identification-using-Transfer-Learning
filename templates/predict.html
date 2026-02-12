@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Inspect Dog Image</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Navbar -->
   <nav class="navbar dark">
     <div class="logo">DOG BREED.</div>
     <ul>
@@ -14,12 +18,32 @@
     </ul>
   </nav>
 
+  <!-- Upload Section -->
   <section class="inspect-section fade-in">
     <h2>Upload Dog Image</h2>
+
     <form action="/predict" method="post" enctype="multipart/form-data" class="upload-card">
-      <input type="file" name="image" required />
+      
+      <!-- Image Preview -->
+      <div class="preview-box">
+        <img id="previewImg" src="" alt="Preview will appear here" />
+        <p id="previewText">No image selected</p>
+      </div>
+
+      <!-- File Input -->
+      <label class="file-label">
+        Choose Image
+        <input type="file" name="image" id="imageInput" accept="image/*" required />
+      </label>
+
+      <!-- Submit -->
       <button type="submit" class="btn-primary">Predict</button>
+
+      <!-- Loading -->
+      <p class="loading-text" id="loadingText">Predicting... please wait ⏳</p>
     </form>
   </section>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

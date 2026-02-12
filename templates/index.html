@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <title>Dog Breed Identification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">DOG BREED.</div>
@@ -20,45 +23,55 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-content fade-in">
-      <h1>Dog Breed Identification.</h1>
-      <p>Identification of Different Dog Breeds using Deep Learning</p>
+      <h1>Dog Breed Identification</h1>
+      <p>Identify dog breeds from images using Deep Learning (VGG19)</p>
       <a href="/predict" class="btn-primary">Inspect Image</a>
     </div>
   </section>
 
-  <!-- About / Flow -->
-  <section id="about" class="section light">
+  <!-- About / How It Works -->
+<section id="about" class="section light">
+  <div class="section-header">
     <h2>How It Works</h2>
-    <div class="flow-grid">
-      <div class="card slide-up">
-        <h3>📁 Data Preparation</h3>
-        <p>Images are collected, preprocessed and split into training and testing sets.</p>
-      </div>
-      <div class="card slide-up">
-        <h3>🧠 Model Building</h3>
-        <p>VGG19 transfer learning model is fine-tuned for dog breed classification.</p>
-      </div>
-      <div class="card slide-up">
-        <h3>📊 Training & Evaluation</h3>
-        <p>The CNN is trained and evaluated to improve accuracy.</p>
-      </div>
-      <div class="card slide-up">
-        <h3>🚀 Deployment</h3>
-        <p>The trained model is deployed with Flask for real-time predictions.</p>
-      </div>
-    </div>
-  </section>
+    <p class="section-subtitle">From data to deployment in four simple steps</p>
+  </div>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
+  <div class="flow-grid">
+    <div class="card slide-up">
+      <h3>📁 Data Preparation</h3>
+      <p>Dog images are collected, cleaned, and augmented.</p>
+    </div>
+    <div class="card slide-up">
+      <h3>🧠 Model Building</h3>
+      <p>VGG19 transfer learning model fine-tuned for classification.</p>
+    </div>
+    <div class="card slide-up">
+      <h3>📊 Training & Evaluation</h3>
+      <p>Model is trained and validated for best performance.</p>
+    </div>
+    <div class="card slide-up">
+      <h3>🚀 Deployment</h3>
+      <p>Model deployed with Flask for real-time predictions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section contact-section">
+  <div class="contact-card fade-in">
     <h2>Contact Us</h2>
+    <p class="contact-sub">Have feedback or questions? Drop us a message 💌</p>
+
     <form class="contact-form">
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Message"></textarea>
+      <textarea placeholder="Your Message..." rows="4" required></textarea>
+
       <button class="btn-primary" type="submit">Send Message</button>
     </form>
-  </section>
+  </div>
+</section>
 
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
