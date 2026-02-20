@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction Result</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar dark">
+    <div class="logo">DOG BREED.</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/predict">Inspect</a></li>
+    </ul>
+  </nav>
+
+  <!-- Result Section -->
+  <section class="result-section">
+    <div class="result-card fade-in">
+
+      <h1>Prediction Result 🐶</h1>
+
+      <!-- Predicted Breed -->
+      <h2 class="highlight">{{ prediction }}</h2>
+
+      <!-- Confidence Bar -->
+      <div class="confidence-box">
+  <span>Confidence: {{ confidence_text }}</span>
+  <div class="confidence-bar">
+    <div class="confidence-fill" style="width: {{ confidence_value }}%;"></div>
+  </div>
+</div>
+
+
+      <!-- CTA -->
+      <a href="/predict" class="btn-primary">🔁 Try Another Image</a>
+    </div>
+  </section>
+
+</body>
+</html>
