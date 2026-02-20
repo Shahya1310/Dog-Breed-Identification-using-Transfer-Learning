@@ -1,13 +1,21 @@
 import os
 import json
 import numpy as np
+import smtplib
+from email.message import EmailMessage
 from flask import Flask, render_template, request
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "uploads"
-app.config["MAX_CONTENT_LENGTH"] = 5 * 1024 * 1024  # 5MB limit
+app.config["MAX_CONTENT_LENGTH"] = 5 * 1024 * 1024
+
+# ===== Email Config =====
+EMAIL_ADDRESS = "yourgmail@gmail.com"
+EMAIL_PASSWORD = "your_app_password_here"
+RECEIVER_EMAIL = "yourgmail@gmail.com"
+# ========================
 
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
@@ -67,7 +75,31 @@ def predict():
     confidence_text=f"{confidence:.2f}%",
     confidence_value=f"{confidence:.2f}"
 )
+@app.route("/contact", methods=["POST"])
+def contact():
+    name = request.form.get("name")
+    email = request.form.get("email")
+    message = request.form.get("message")
 
+    msg = EmailMessage()
+    msg["Subject"] = "Dog Breed App - New Contact Message"
+    msg["From"] = EMAIL_ADDRESS
+    msg["To"] = RECEIVER_EMAIL
+    msg.set_content(
+        f"New message from your website:\n\n"
+        f"Name: {name}\n"
+        f"Email: {email}\n\n"
+        f"Message:\n{message}"
+    )
+
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+            smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+            smtp.send_message(msg)
+        return render_template("index.html", success=True)
+    except Exception as e:
+        print("Email error:", e)
+        return render_template("index.html", error=True)
 
 
 if __name__ == "__main__":
